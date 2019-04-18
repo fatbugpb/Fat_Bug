@@ -1,0 +1,27 @@
+listaSocios = []
+
+def menu():
+    print("1 - Cadastro de sócio")
+    print("2 - Visualizar sócios")
+    print("3 - Sair")
+    opcao = int(input("Selecione uma opção: "))
+    return opcao
+
+
+def cadastrar():
+    novoSocio = input("Digite o nome do sócio: ")
+    listaSocios.append(novoSocio)
+
+def visualizarSocios():
+    print("Lista de sócios ativos:")
+    for socios in listaSocios:
+        print("-",socios)
+        
+while True:
+    opcao = menu()
+    if opcao ==3:
+        break
+    elif opcao ==2:
+        visualizarSocios()
+    elif opcao ==1:
+        cadastrar()
