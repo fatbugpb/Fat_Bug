@@ -1,27 +1,52 @@
-listaSocios = []
+socios = {}
 
 def menu():
-    print("1 - Cadastro de sócio")
-    print("2 - Visualizar sócios")
-    print("3 - Sair")
+    print("Cadastro de sócios")
+    print("1 - Adicionar Sócio")
+    print("2 - Buscar sócio")
+    print("3 - Remover sócio")
+    print("4 - Listar Sócios")
+    print("5 - Sair")
     opcao = int(input("Selecione uma opção: "))
-    return opcao
+    return opcao            
 
 
-def cadastrar():
-    novoSocio = input("Digite o nome do sócio: ")
-    listaSocios.append(novoSocio)
+def cadastro():
+    addSocio = input("Digite o nome do sócio que deseja cadastrar")
+    telefoneSocio = int(input("Digite o número de telefone do sócio (DDD + NÚMERO): "))
+    cpfSocio = input("Digite o CPF do socio: ")
+    socios[addSocio] = ("telefone: ",telefoneSocio,"CPF",cpfSocio)
+    print("Cadastro realizado com sucesso!")
 
-def visualizarSocios():
-    print("Lista de sócios ativos:")
-    for socios in listaSocios:
-        print("-",socios)
+def buscarSocios():
+    busca = input("Digite o nome do sócio que deseja buscar: ")
+    if busca in socios:
+        print(socios[busca])
+    else:
+        print("O usuário não está cadastrado no sistema")
+
+def deletarSocio():
+    excluiSocio = input("Digite o nome do sócio que deseja remover: ")
+    if excluiSocio in socios:
+        del socios[excluiSocio]
+        print("Sócio removido com sucesso!")
+    else:
+        print("Esse sócio não está cadastro no sistema!")
+def listaSocios():
+    print([socios])
         
 while True:
+    
     opcao = menu()
+
     if opcao ==3:
+        deletarSocio()
+    elif opcao == 5:
         break
-    elif opcao ==2:
-        visualizarSocios()
-    elif opcao ==1:
-        cadastrar()
+    elif opcao == 1:
+        cadastro()
+    elif opcao ==4:
+        listaSocios()
+    elif opcao == 2:
+        buscarSocios()
+                
