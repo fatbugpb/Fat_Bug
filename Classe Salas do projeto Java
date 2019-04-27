@@ -1,0 +1,33 @@
+package conteudo;
+
+public class Salas {
+	
+	//Atributos
+	String idSala;
+	
+	//Construtor
+	public Salas( String salas) {
+		this.idSala = salas;
+	}
+	
+	
+
+	//Getters e Setters
+	public String getIdSala() {
+		return idSala;
+	}
+
+	public void setIdSala(String idSala) {
+		this.idSala = idSala;
+	}
+
+	//toString
+	public String toString() {
+		return "Salas [idSala=" + idSala + "]";
+	}
+
+	
+	
+	
+	
+}
