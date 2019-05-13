@@ -1,22 +1,27 @@
-socios = {}
+from os import remove
+
+socios ={}
+
 
 def menu():
     print("Cadastro de sócios")
     print("1 - Adicionar Sócio")
-    print("2 - Buscar sócio")
+    print("2 - Alterar nome")
     print("3 - Remover sócio")
     print("4 - Listar Sócios")
-    print("5 - Sair")
+    print("5 - Buscar socio ")
+    print("6 - Sair")
     opcao = int(input("Selecione uma opção: "))
-    return opcao            
+    return opcao
 
 
 def cadastro():
     addSocio = input("Digite o nome do sócio que deseja cadastrar")
     telefoneSocio = int(input("Digite o número de telefone do sócio (DDD + NÚMERO): "))
     cpfSocio = input("Digite o CPF do socio: ")
-    socios[addSocio] = ("telefone: ",telefoneSocio,"CPF",cpfSocio)
+    socios [addSocio] = ("telefone: ", telefoneSocio, "CPF", cpfSocio)
     print("Cadastro realizado com sucesso!")
+
 
 def buscarSocios():
     busca = input("Digite o nome do sócio que deseja buscar: ")
@@ -25,6 +30,8 @@ def buscarSocios():
     else:
         print("O usuário não está cadastrado no sistema")
 
+
+
 def deletarSocio():
     excluiSocio = input("Digite o nome do sócio que deseja remover: ")
     if excluiSocio in socios:
@@ -32,21 +39,46 @@ def deletarSocio():
         print("Sócio removido com sucesso!")
     else:
         print("Esse sócio não está cadastro no sistema!")
+
+
+
+def editarDados():
+
+    get = input('informe o nome seu nome para alterar dados')
+    addSocio = get
+    del socios[get]
+    altSocio = input('informe o novo nome')
+    alttel = int(input('informe seu numero'))
+    altcpf = int(input('informe o cpf'))
+    socios[altSocio] = ('telefone', alttel, 'cpf', altcpf)
+    print('ALTERAÇÃO CONCLUIDA')
+
+
+
+
+
+
+
+
+
 def listaSocios():
-    print([socios])
-        
+    print(socios)
+
+
 while True:
-    
+
     opcao = menu()
 
-    if opcao ==3:
+    if opcao == 3:
         deletarSocio()
     elif opcao == 5:
+        buscarSocios()
+    elif opcao == 6:
         break
     elif opcao == 1:
         cadastro()
-    elif opcao ==4:
+    elif opcao == 4:
         listaSocios()
     elif opcao == 2:
-        buscarSocios()
-                
+
+
