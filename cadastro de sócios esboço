@@ -80,5 +80,6 @@ while True:
     elif opcao == 4:
         listaSocios()
     elif opcao == 2:
+        editarDados()
 
 
