@@ -1,0 +1,149 @@
+socios = {"Amaro"}
+sala1 = {}
+sala2 = {}
+sala3 = {}
+
+
+def menuReservas():
+    
+    print("1 - Reservar sala")
+    print("2 - Visualizar reservas")
+    print("3 - Remover reserva")
+    print("4 - Buscar reserva")
+    print("5 - altera horario:")
+    option  = int(input("Selecione uma opção: "))
+    return option
+
+
+
+def reservaSala():
+    
+    nomeDoSocio = input("Nome do sócio: ")
+    if nomeDoSocio in socios:
+        sala = int(input("Sala: "))
+        if sala == 1:
+            dataDaReserva = input("Data: ")
+            horaInicial = input("Hora de inicio: ")
+            horaFinal = input("Hora de término: ")
+            sala1[nomeDoSocio] = ("Data: {} - Horário: {} às {}".format(dataDaReserva,horaInicial,horaFinal))
+            print("Reserva feita com sucesso!")
+            
+        elif sala == 2:
+            dataDaReserva = input("Data: ")
+            horaInicial = input("Hora de inicio: ")
+            horaFinal = input("Hora de término: ")
+            sala2[nomeDoSocio] = ("Data: {} - Horário: {} às {}".format(dataDaReserva,horaInicial,horaFinal))
+            print("Reserva feita com sucesso!")
+            
+        elif sala == 3:
+            dataDaReserva = input("Data: ")
+            horaInicial = input("Hora de inicio: ")
+            horaFinal = input("Hora de término: ")
+            sala3[nomeDoSocio] = ("Data: {} - Horário: {} às {}".format(dataDaReserva,horaInicial,horaFinal))
+            print("Reserva feita com sucesso!")   
+
+        else:
+            print("Sala inexistente, tente novamente!")
+    else:
+        print("Esse sócio não está cadastrado no sistema!")
+
+
+def visualizaReserva():
+
+    for item in sorted(sala1, key = sala1.get):
+        print (sala1)
+    
+    for item in sorted(sala2, key = sala2.get):
+        print (sala2)
+
+    for item in sorted(sala3, key = sala3.get):
+        print (sala3)
+
+
+def removeReserva():
+
+    salaDaReserva = int(input("Sala: "))
+    if salaDaReserva == 1:
+        nomeSocio = input("Nome do sócio: ")
+        if nomeSocio in sala1:
+            del sala1[nomeSocio]
+            print("Reserva removida com sucesso!")
+        else:
+            print("Esse sócio não possui reservas nessa sala!")
+    
+    elif salaDaReserva == 2:
+        nomeSocio = input("Nome do sócio: ")
+        if nomeSocio in sala2:
+            del sala1[nomeSocio]
+            print("Reserva removida com sucesso!")
+        else:
+            print("Esse sócio não possui reservas nessa sala!")
+
+    elif salaDaReserva == 3:
+        nomeSocio = input("Nome do sócio: ")
+        if nomeSocio in sala3:
+            del sala1[nomeSocio]
+            print("Reserva removida com sucesso!")
+        else:
+            print("Esse sócio não possui reservas nessa sala!")            
+    
+    else:
+        print("Sala inexistente")
+
+
+def buscaReserva():
+
+    nomeDSocio = input("Nome do sócio: ")
+    if nomeDSocio in sala1:
+        print("|SALA 1|")
+        print(sala1[nomeDSocio])
+    elif nomeDSocio in sala2:
+        print("|SALA 2|")
+        print(sala2[nomeDSocio])
+    elif nomeDSocio in sala3:
+        print("|SALA 3|")
+        print(sala3[nomeDsocio])
+
+
+def alterarhorario():
+    nome = input('informe o nome do socio:')
+    if nome in socios:
+        altsala = int(input("informe a sala que sera feita as alterações : "))
+        if altsala == 1:
+            altdataDaReserva = input("Data: ")
+            althoraInicial = input("Hora de inicio: ")
+            althoraFinal = input("Hora de término: ")
+            sala1[nome] = ("Data: {} - Horário: {} às {}".format(altdataDaReserva,althoraInicial,althoraFinal))
+            print("alterações feita com sucesso!")
+        if altsala ==2:
+            altdataDaReserva = input("data:")
+            althoraInicial = input("hora de inicio:")
+            althoraFinal = input("hora de termino:")
+            sala2[nome] = ("data: {} - horario:{} as {}".format(altdataDaReserva,althoraInicial,althoraFinal))
+            print("alterações feitas com sucesso")
+
+
+        if altsala ==3:
+           altdataDaReserva = input("data:")
+           althoraInicial = input("hora de inicio:")
+           althoraFinal = input("hora de termino:")
+           sala3[nome] =("data:{} - horario: {} as {}".format(altdataDaReserva,althoraInicial,althoraFinal))
+           print("alterações feitas com sucesso")
+
+
+
+
+while True:
+    
+    option = menuReservas()
+
+    if option == 4:
+        buscaReserva()
+    elif option == 1:
+        reservaSala()
+    elif option == 3:
+        removeReserva()
+    elif option ==2:
+        visualizaReserva()
+    elif option ==5:
+        alterarhorario()
