@@ -1,0 +1,291 @@
+# Imports----
+import os
+import time
+
+# -----------
+
+socios = {}
+sala1 = {}
+sala2 = {}
+sala3 = {}
+
+
+def main():
+
+    while main != 3:
+        print("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬")
+        print("¬¬¬¬¬¬¬¬¬¬¬                          ¬¬¬¬¬¬¬¬¬¬¬")
+        print("¬¬¬¬¬¬¬¬¬¬¬    Menu Principal        ¬¬¬¬¬¬¬¬¬¬¬")
+        print("¬¬¬¬¬¬¬¬¬¬¬                          ¬¬¬¬¬¬¬¬¬¬¬")
+        print("¬¬¬¬¬¬¬¬¬¬¬   1 - Menu de Sócios     ¬¬¬¬¬¬¬¬¬¬¬")
+        print("¬¬¬¬¬¬¬¬¬¬¬   2 - Menu de Reservas   ¬¬¬¬¬¬¬¬¬¬¬")
+        print("¬¬¬¬¬¬¬¬¬¬¬   3 - Sair               ¬¬¬¬¬¬¬¬¬¬¬")
+        print("¬¬¬¬¬¬¬¬¬¬¬                          ¬¬¬¬¬¬¬¬¬¬¬")
+        print("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬")
+
+        opcao = int(input("Selecione uma opção: "))
+
+        if opcao == 1:
+            menu()
+        elif opcao == 2:
+            menuReservas()
+        elif opcao == 3:
+            print("\n")
+            print("Finalizando...")
+            break
+        else:
+            print("\n")
+            print("Opção inválida. Tente novamente.")
+            main()
+
+def menu():
+
+    while menu != 7:
+        print("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬")
+        print("¬¬¬¬¬¬¬¬¬¬¬                         ¬¬¬¬¬¬¬¬¬¬¬")
+        print("¬¬¬¬¬¬¬¬¬¬¬    Cadastro de sócios   ¬¬¬¬¬¬¬¬¬¬¬")
+        print("¬¬¬¬¬¬¬¬¬¬¬                         ¬¬¬¬¬¬¬¬¬¬¬")
+        print("¬¬¬¬¬¬¬¬¬¬¬    1 - Adicionar Sócio  ¬¬¬¬¬¬¬¬¬¬¬")
+        print("¬¬¬¬¬¬¬¬¬¬¬    2 - Buscar sócio     ¬¬¬¬¬¬¬¬¬¬¬")
+        print("¬¬¬¬¬¬¬¬¬¬¬    3 - Remover sócio    ¬¬¬¬¬¬¬¬¬¬¬")
+        print("¬¬¬¬¬¬¬¬¬¬¬    4 - Listar Sócios    ¬¬¬¬¬¬¬¬¬¬¬")
+        print("¬¬¬¬¬¬¬¬¬¬¬    5 - Alterar Nome     ¬¬¬¬¬¬¬¬¬¬¬")
+        print("¬¬¬¬¬¬¬¬¬¬¬    6 - Retornar         ¬¬¬¬¬¬¬¬¬¬¬")
+        print("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬")
+        opcao = int(input("Selecione uma opção: "))
+
+        if opcao == 1:
+            cadastro()
+        elif opcao == 2:
+            buscarSocios()
+        elif opcao == 3:
+            deletarSocio()
+        elif opcao == 4:
+            listaSocios()
+        elif opcao == 5:
+            alteraSocios()
+        elif opcao == 6:
+            main()
+        else:
+            print("\n")
+            print("Opção inválida. Tente novamente.")
+            menu()
+
+def menuReservas():
+
+    while menu != 5:
+        print("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬")
+        print("¬¬¬¬¬¬¬¬¬¬¬                           ¬¬¬¬¬¬¬¬¬¬¬")
+        print("¬¬¬¬¬¬¬¬¬¬¬      Menu de Reservas     ¬¬¬¬¬¬¬¬¬¬¬")
+        print("¬¬¬¬¬¬¬¬¬¬¬                           ¬¬¬¬¬¬¬¬¬¬¬")
+        print("¬¬¬¬¬¬¬¬¬¬¬   1 - Reservar Sala       ¬¬¬¬¬¬¬¬¬¬¬")
+        print("¬¬¬¬¬¬¬¬¬¬¬   2 - Visualizar reservas ¬¬¬¬¬¬¬¬¬¬¬")
+        print("¬¬¬¬¬¬¬¬¬¬¬   3 - Remover reserva     ¬¬¬¬¬¬¬¬¬¬¬")
+        print("¬¬¬¬¬¬¬¬¬¬¬   4 - Buscar reserva      ¬¬¬¬¬¬¬¬¬¬¬")
+        print("¬¬¬¬¬¬¬¬¬¬¬   5 - Retornar            ¬¬¬¬¬¬¬¬¬¬¬")
+        print("¬¬¬¬¬¬¬¬¬¬¬                           ¬¬¬¬¬¬¬¬¬¬¬")
+        print("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬")
+
+        opcao = int(input("Selecione uma opção: "))
+
+        if opcao == 1:
+            reservaSala()
+        elif opcao == 2:
+            visualizaReserva()
+        elif opcao == 3:
+            removeReserva()
+        elif opcao == 4:
+            buscaReserva()
+        elif opcao == 5:
+            main()
+        else:
+            print("\n")
+            print("Opção inválida. Tente novamente.")
+            menuReservas()
+
+
+def cadastro():
+
+    os.system('cls' if os.name == 'nt' else 'clear')  # Limpa o console
+
+    print("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬                         ¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬    Adicionar Sócio      ¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬                         ¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬")
+
+    addSocio = input("Nome do sócio: ")
+
+    telefoneSocio = int(input("Número de telefone: "))
+
+    cpfSocio = input("CPF:  ")
+
+    socios[addSocio] = ("|telefone: {}| - |CPF: {}|".format(telefoneSocio, cpfSocio))
+
+    time.sleep(0.5)
+
+    print("Cadastro realizado com sucesso!")
+    time.sleep(0.5)
+    os.system('cls' if os.name == 'nt' else 'clear')  # Limpa o console
+    time.sleep(0.5)
+
+
+def buscarSocios():
+
+    os.system('cls' if os.name == 'nt' else 'clear')  # Limpa o console
+
+    print("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬                         ¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬    Buscar Sócio         ¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬                         ¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬")
+
+    busca = input("Digite o nome do sócio que deseja buscar: ")
+
+    if busca in socios:
+        print(socios[busca])
+    else:
+        print("O sócio não está cadastrado no sistema!")
+        os.system('cls' if os.name == 'nt' else 'clear')  # Limpa o console
+        time.sleep(0.5)
+
+
+def deletarSocio():
+
+    os.system('cls' if os.name == 'nt' else 'clear')  # Limpa o console
+    print("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬                         ¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬      Remover Sócio      ¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬                         ¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬")
+
+    excluiSocio = input("Digite o nome do sócio que deseja remover: ")
+    if excluiSocio in socios:
+        del socios[excluiSocio]
+        time.sleep(0.5)
+        print("Sócio removido com sucesso!")
+        time.sleep(0.5)
+        os.system('cls' if os.name == 'nt' else 'clear')  # Limpa o console
+        time.sleep(0.5)
+
+    else:
+        time.sleep(0.5)
+        print("Esse sócio não está cadastrado no sistema!")
+        time.sleep(0.5)
+        os.system('cls' if os.name == 'nt' else 'clear')  # Limpa o console
+        time.sleep(0.5)
+
+
+def listaSocios():
+
+    os.system('cls' if os.name == 'nt' else 'clear')  # Limpa o console
+    print("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬                         ¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬      Lista de sócios    ¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬                         ¬¬¬¬¬¬¬¬¬¬¬")
+    print("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬")
+    for item in sorted(socios, key=socios.get):
+        print(socios)
+
+
+def alteraSocios():
+
+    alteraSocio = input("Digite o nome do sócio a ser alterado: ")
+    if alteraSocio in socios:
+        alteracao = input("Digite o novo nome do sócio: ")
+        socios[alteracao] = socios.pop(alteraSocio)
+        print("Nome do sócio alterado com sucesso!")
+    else:
+        print("Esse sócio não possui cadastro no sistema!")
+
+
+def reservaSala():
+
+    nomeDoSocio = input("Nome do sócio: ")
+    if nomeDoSocio in socios:
+        sala = int(input("Sala: "))
+        if sala == 1:
+            dataDaReserva = input("Data: ")
+            horaInicial = input("Hora de inicio: ")
+            horaFinal = input("Hora de término: ")
+            sala1[nomeDoSocio] = ("Data: {} - Horário: {} às {}".format(dataDaReserva, horaInicial, horaFinal))
+            print("Reserva feita com sucesso!")
+
+        elif sala == 2:
+            dataDaReserva = input("Data: ")
+            horaInicial = input("Hora de inicio: ")
+            horaFinal = input("Hora de término: ")
+            sala2[nomeDoSocio] = ("Data: {} - Horário: {} às {}".format(dataDaReserva, horaInicial, horaFinal))
+            print("Reserva feita com sucesso!")
+
+        elif sala == 3:
+            dataDaReserva = input("Data: ")
+            horaInicial = input("Hora de inicio: ")
+            horaFinal = input("Hora de término: ")
+            sala3[nomeDoSocio] = ("Data: {} - Horário: {} às {}".format(dataDaReserva, horaInicial, horaFinal))
+            print("Reserva feita com sucesso!")
+
+        else:
+            print("Sala inexistente, tente novamente!")
+    else:
+        print("Esse sócio não está cadastrado no sistema!")
+
+
+def visualizaReserva():
+
+    for item in sorted(sala1, key=sala1.get):
+        print(sala1)
+
+    for item in sorted(sala2, key=sala2.get):
+        print(sala2)
+
+    for item in sorted(sala2, key=sala2.get):
+        print(sala2)
+
+
+def removeReserva():
+
+    salaDaReserva = int(input("Sala: "))
+    if salaDaReserva == 1:
+        nomeSocio = input("Nome do sócio: ")
+        if nomeSocio in sala1:
+            del sala1[nomeSocio]
+            print("Reserva removida com sucesso!")
+        else:
+            print("Esse sócio não possui reservas nessa sala!")
+
+    elif salaDaReserva == 2:
+        nomeSocio = input("Nome do sócio: ")
+        if nomeSocio in sala2:
+            del sala1[nomeSocio]
+            print("Reserva removida com sucesso!")
+        else:
+            print("Esse sócio não possui reservas nessa sala!")
+
+    elif salaDaReserva == 3:
+        nomeSocio = input("Nome do sócio: ")
+        if nomeSocio in sala3:
+            del sala1[nomeSocio]
+            print("Reserva removida com sucesso!")
+        else:
+            print("Esse sócio não possui reservas nessa sala!")
+
+    else:
+        print("Sala inexistente")
+
+
+def buscaReserva():
+
+    nomeDSocio = input("Nome do sócio: ")
+    if nomeDSocio in sala1:
+        print("|SALA 1|")
+        print(sala1[nomeDSocio])
+    elif nomeDSocio in sala2:
+        print("|SALA 2|")
+        print(sala2[nomeDSocio])
+    elif nomeDSocio in sala3:
+        print("|SALA 3|")
+        print(sala3[nomeDSocio])
+
+
+main()
