@@ -40,7 +40,7 @@ def main():
 
 def menu():
 
-    while menu != 7:
+    while menu != 6:
         print("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬")
         print("¬¬¬¬¬¬¬¬¬¬¬                         ¬¬¬¬¬¬¬¬¬¬¬")
         print("¬¬¬¬¬¬¬¬¬¬¬    Cadastro de sócios   ¬¬¬¬¬¬¬¬¬¬¬")
